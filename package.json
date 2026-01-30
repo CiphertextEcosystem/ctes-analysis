@@ -1,0 +1,28 @@
+{
+  "name": "ctes-analysis",
+  "version": "0.0.1",
+  "description": "Cryptanalysis functions",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CiphertextEcosystem/ctes-analysis.git"
+  },
+  "keywords": [
+    "Cryptanalysis"
+  ],
+  "author": "irebased",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CiphertextEcosystem/ctes-analysis/issues"
+  },
+  "homepage": "https://github.com/CiphertextEcosystem/ctes-analysis#readme",
+  "dependencies": {
+    "ctes-models-ts": "^0.1.0"
+  }
+}

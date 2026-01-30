@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/CiphertextEcosystem/ctes-analysis#readme",
   "dependencies": {
+    "ctes-core": "^0.1.0",
     "ctes-models-ts": "^0.1.0"
   }
 }

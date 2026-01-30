@@ -1,7 +1,8 @@
 import { Ciphertext } from "ctes-models-ts";
-import { WindowMode, NGramFrequencyMap, WindowModes } from "./types";
-import { generateNGrams } from "./utils/ngrams";
-import { getNgramFrequencies } from "./utils";
+import { encode } from "ctes-core/dist/encoding/encoder";
+import { WindowMode, NGramFrequencyMap, WindowModes } from "../types";
+import { generateNGrams } from "../utils/ngrams";
+import { getNgramFrequencies } from "../utils";
 
 export type FrequencyAnalysisOptions = {
     nGramSize: number;
@@ -25,13 +26,21 @@ const DEFAULT_FREQUENCY_ANALYSIS_RESULT: FrequencyAnalysisResult = {
     allNGrams: new Set<string>(),
 }
 
+export function calculateCiphertextFrequency(
+    ciphertext: Ciphertext,
+    options: FrequencyAnalysisOptions=DEFAULT_FREQUENCY_ANALYSIS_OPTIONS
+): FrequencyAnalysisResult {
+    const ciphertextAsString: string = encode(ciphertext);
+    return calculateFrequency(ciphertextAsString, options);
+}
+
 /**
  * Generates FrequencyAnalysisResult for an individual preprocessed text.
  * @param text The ciphertext, after being converted to a string.
  * @param options Configuration for how to handle the frequency analysis.
  * @returns 
  */
-export function calculateFrequency(
+function calculateFrequency(
     text: string,
     options: FrequencyAnalysisOptions=DEFAULT_FREQUENCY_ANALYSIS_OPTIONS
 ): FrequencyAnalysisResult {
